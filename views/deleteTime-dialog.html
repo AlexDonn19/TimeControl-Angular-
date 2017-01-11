@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h3 class="modal-title">Delete {{deleteName}}?</h3>
+</div>
+<div class="modal-body">
+  Are you sure to delete this item?
+  <div class="form-group">
+    <label>
+      <input type="radio" ng-model="deleteType" value="thisTime">
+      Only this occurence
+    </label><br />
+    <label>
+      <input type="radio" ng-model="deleteType" value="allTimeNotes">
+      All timecontrol notes of this person
+    </label><br />
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger" ng-disabled="clear" ng-click="ok()" title="Delete">Delete</button>
+  <button class="btn btn-default" ng-click="cancel()" title="Cancel">Cancel</button>
+</div>

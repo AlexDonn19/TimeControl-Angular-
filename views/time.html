@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>
+            Items in TIME CONTROL list
+            <span class="label label-info">{{totalItems.time}}</span>
+            <p>Limit: <select class="text-info" ng-model="limitValue.time" ng-options="item for item in limitRange" ng-change="changedLimit('time', limitValue.time)"></select></p>
+        </h3>
+    </div>
+
+    <table class="table table-striped">
+    	<thead>
+    		<tr>
+    			<td><button class="btn btn-default" ng-click="changeOrder('time', '-date')">Date</button></td>
+    			<td><button class="btn btn-default" ng-click="changeOrder('time', '-name')">Person</button></td>
+    			<td><button class="btn btn-default" ng-click="changeOrder('time', '-timeIn')">Time in</button></td>
+    			<td><button class="btn btn-default" ng-click="changeOrder('time', '-timeOut')">Time out</button></td>
+                <td>Edit</td>
+                <td>Delete</td>
+    		</tr>
+    	</thead>
+    	<tbody>
+            <tr ng-repeat="person in itemsToShow.time">
+    			<td>{{ person.date | date: "dd.MM.yyyy" }}</td>
+    			<td>{{ person.name }}</td>
+    			<td>{{ person.timeIn }}</td>
+    			<td>{{ person.timeOut }}</td>
+                <td><button class="btn btn-primary" ng-click="editCreateItem('time', person)">Edit</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteItem('time', person)" title="Delete">X</button></td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+<div>
+    <ul uib-pagination total-items="totalItems.time" items-per-page="iPerPage" ng-model="currentPage.time" max-size=5 class="pagination-sm" boundary-link-numbers="true" ng-change="pageChange('time', currentPage.time)"></ul>
+</div>

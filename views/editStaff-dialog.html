@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h3 class="modal-title">Change person <b>{{currentName}}</b> data</h3>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+  <table class="table row">
+    <thead>
+        <tr>
+            <td class="col-xs-3">Input</td>
+            <td class="col-xs-9">new data</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Current name</td>
+            <td><editperson-name data-newdata="newdata"></editperson-name></td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td class="row">
+              <select class="form-control col-md-3" ng-model="newdata.sex" ng-options="f for f in limitSex"></select>
+            </td>
+        </tr>
+        <tr>
+            <td>Contacts</td>
+            <td><input type="text" ng-model="newdata.contact"></td>
+        </tr>
+        <tr>
+            <td>New date</td>
+            <td><date-picker data-newdata="newdata"></date-picker></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+<div class="modal-footer">
+  <button class="btn btn-success" ng-click="ok()" title="Save" ng-disabled="invalid">Save</button>
+  <button class="btn btn-default" ng-click="cancel()" title="Cancel">Cancel</button>
+</div>

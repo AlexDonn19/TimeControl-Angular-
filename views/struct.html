@@ -1,0 +1,60 @@
+<div class="panel col-xs-12">
+    <div class="panel-primary col-xs-6">
+        <div class="panel-heading">
+            <h3>
+                Items in STRUCTURE list
+                <span class="label label-info">{{totalItems.struct}}</span>
+                <p>Limit: <select class="text-info" ng-model="limitValue.struct" ng-options="item for item in limitRange" ng-change="changedLimit('struct', limitValue.struct)"></select></p>
+            </h3>
+        </div>
+        <table id="struct" class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="col-md-8"><button class="btn btn-default" ng-click="changeOrder('struct', '-name')">Person</button></td>
+                    <td class="col-md-2">Edit</td>
+                    <td class="col-md-1">Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in itemsToShow.struct">
+                    <td class="struct" ng-click="selectStructPers(person, $event)"><span>{{ person.name }}</span></td>
+                    <td><button class="btn btn-primary" ng-click="editCreateItem('struct', person)">Edit</button></td>
+                    <td><button class="btn btn-danger" ng-click="deleteItem('struct', person)" title="Delete">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <ul uib-pagination total-items="totalItems.struct" items-per-page="iPerPage" ng-model="currentPage.struct" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="pageChange('struct', currentPage.struct)"></ul>
+        </div>
+    </div>
+
+
+    <div class="panel-primary col-xs-5">
+        <div class="well">
+            <h3>{{selectPers.name}}</h3>
+            <h4>
+                Person dependencies list
+                <span class="label label-info">{{totalItems.depends}}</span>
+                <p>Limit: <select class="text-info" ng-model="limitValue.depends" ng-options="item for item in limitRange" ng-change="changedLimit('depends', limitValue.depends)"></select></p>
+            </h4>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td><button class="btn btn-default" ng-click="changeOrder('depends', '-name')">Person</button></td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in itemsToShow.depends">
+                    <td>{{ person.name }}</td>
+                    <td><button class="btn btn-danger" ng-click="deleteItem('depends', person)" title="Delete">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <ul uib-pagination total-items="totalItems.depends" items-per-page="iPerPageDep" ng-model="currentPage.depends" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="pageChange('depends', currentPage.depends)"></ul>
+        </div>
+        <button class="btn btn-success" ng-click="editCreateItem('depends', false)"  ng-disabled="invalidDep">+ Add</button>
+    </div>
+</div>

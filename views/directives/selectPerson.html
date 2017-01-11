@@ -1,0 +1,10 @@
+<div class="row">
+	  <h4 class="col-md-8">Selected: {{newdata.name}}</h4>
+	  <div ng-show="showSelect">
+	      <div class="col-md-6 mytimer">
+	        <select class="form-control" ng-model="personChoose" ng-options="f.name for f in staff" ng-change="changed()">	           
+	        </select>	        
+	      </div>
+	      <button type="button" class="btn btn-default col-md-2 mytimer" ng-click="clear()">Clear</button>
+      </div>
+</div>

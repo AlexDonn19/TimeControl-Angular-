@@ -1,0 +1,20 @@
+<div class="row">
+	  <h4 class="col-xs-10">Selected: {{newdata.name}}</h4>
+	  <div>	      
+	      <table class="col-xs-6">
+	      	<tr>
+	      		<td><label>Surname</label></td>
+	      		<td><input type="text" class="form-control" ng-model="current.surname" ng-change="changed()"></td>
+	      	</tr>
+	      	<tr>
+	      		<td><label>Name</label></td>
+	      		<td><input type="text" class="form-control" ng-model="current.name" ng-change="changed()"></td>
+	      	</tr>
+	      	<tr>
+	      		<td><label>Middle name</label></td>
+	      		<td><input type="text" class="form-control" ng-model="current.midname" ng-change="changed()"></td>
+	      	</tr>
+	      </table>          
+	      <button type="button" class="btn btn-default col-xs-2" ng-click="cancel()">Cancel</button>
+      </div>
+</div>

@@ -1,0 +1,7 @@
+div.mytimer, button.mytimer {
+    display: inline-block;
+    vertical-align: middle;
+}
+.struct {
+    cursor: pointer;
+}
